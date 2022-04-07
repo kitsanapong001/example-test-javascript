@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example TEST</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <a href="ex1.html">ex1</a> |
+        <a href="ex2.html">ex2</a> |
+        <a href="ex3.html">ex3</a> |
+        <a href="ex4.html">ex4</a> |
+        <a href="ex5.html">ex5</a> |
+        <a href="ex6.html">ex6</a> |
+        <a href="ex7.html">ex7</a> 
+    <div id="app" style="margin-top:20px"></div>
+    </div>
+    <script>
+        var data = [7,1,4,6,10,2,3,5,8,9];
+        var show_data = [7,1,4,6,10,2,3,5,8,9];
+        calAscDesc(data,show_data);
+
+        function calAscDesc(data,show_data) {
+            let temp = 0;
+            for (let index = 0; index < data.length; index++) {
+                const element = data[index];
+                for (let j = 0; j < data.length; j++) {
+                    const element2 = data[j];
+                    if (data[index] > data[j]) {
+                        temp = data[index];
+                        data[index] = data[j]
+                        data[j] = temp
+                    }
+                }
+            }   
+            document.getElementById("app").innerHTML = `
+            <h1>Before : ${show_data}</h1> <h1>After : ${data}</h1>`;
+        }
+    </script>
+</body>
+</html>

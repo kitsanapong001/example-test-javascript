@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example TEST</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <a href="ex1.html">ex1</a> |
+        <a href="ex2.html">ex2</a> |
+        <a href="ex3.html">ex3</a> |
+        <a href="ex4.html">ex4</a> |
+        <a href="ex5.html">ex5</a> |
+        <a href="ex6.html">ex6</a> |
+        <a href="ex7.html">ex7</a> 
+    <div  style="margin-top:20px"></div>
+    <div>
+        <label for="input1">input1</label>
+        <input type="text" id="input1">
+        <label for="input2">input2</label>
+        <input type="text" id="input2">
+        <button onclick="checkString()">Submit</button>
+    </div>
+    <div id="app"></div>
+</div>
+
+    <script>
+       function checkString() {
+        var status = false;
+        var input1 = document.getElementById("input1").value;
+        var input2 = document.getElementById("input2").value;
+        for (let index = 0; index < input1.length; index++) {
+            const element = input1[index];
+            for (let j = 0; j < input2.length; j++) {
+                const element2 = input2[j];
+                if (element === element2) {
+                    status = true;
+                }
+            }
+        }
+        document.getElementById("app").innerHTML = `<h1>${status}</h1>`;
+        console.log(status);
+       return status;
+       }
+   
+    </script>
+    
+</body>
+</html>

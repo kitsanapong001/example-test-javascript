@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example TEST</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <a href="ex1.html">ex1</a> |
+        <a href="ex2.html">ex2</a> |
+        <a href="ex3.html">ex3</a> |
+        <a href="ex4.html">ex4</a> |
+        <a href="ex5.html">ex5</a> |
+        <a href="ex6.html">ex6</a> |
+        <a href="ex7.html">ex7</a> 
+    <div  style="margin-top:20px"></div>
+    <label for="input1">ราคาสินค้า</label>
+    <input type="text" id="input1">
+    <label for="input2">จำนวนเงินที่จ่าย</label>
+    <input type="text" id="input2">
+    <button onclick="calculator()">Submit</button>
+    <div id="app"></div>
+    </div>
+    <script>
+        function calculator() {
+            var b500 = 0;
+            var b100 = 0;
+            var b50 = 0;
+            var b20 = 0;
+            var b10 = 0;
+            var b5 = 0;
+            var b1 = 0;
+            var price = document.getElementById("input1").value;
+            var money = document.getElementById("input2").value;
+            var sum =  parseInt(money) - parseInt(price)
+            if (price > money) {
+                alert("ราคาสินค้าต้องมากกว่าหรือเท่ากับ >= จำนวนเงินที่จ่าย")
+                document.getElementById("input1").value = "";
+                document.getElementById("input2").value = "";
+                document.getElementById("input1").focus();
+                document.getElementById("app").innerHTML = "";
+                return;
+            }
+            while (sum != 0 && sum > 1) {
+                if (sum >= 500) {
+                    b500++;
+                    sum-=500;
+                }
+                else if(sum >= 100){
+                    b100++;
+                    sum-=100;
+                }
+                else if(sum >= 50){
+                    b50++;
+                    sum-=50;
+                }
+                else if(sum >= 20){
+                    b20++;
+                    sum-=20;
+                }
+                else if(sum >= 10){
+                    b10++;
+                    sum-=10;
+                }
+                else if(sum >= 5){
+                    b5++;
+                    sum-=5;
+                }
+                else if(sum >= 1){
+                    b1++;
+                    sum-=1;
+                }
+            }
+
+                document.getElementById("app").innerHTML = `<h1>${money} - ${price} ทอน ${money-price}</h1>
+                <div>500 : ${b500}</div><div>100 : ${b100}</div><div>50 : ${b50}</div><div>20 : ${b20}</div>
+                <div>10 : ${b10}</div><div>5 : ${b5}</div><div>1 : ${b1}</div>`;
+
+        }
+    </script>
+</body>
+<style>
+    input[type=text]:focus {
+  border: 3px solid #555;
+}
+</style>
+</html>

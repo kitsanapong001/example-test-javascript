@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example TEST</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <a href="ex1.html">ex1</a> |
+        <a href="ex2.html">ex2</a> |
+        <a href="ex3.html">ex3</a> |
+        <a href="ex4.html">ex4</a> |
+        <a href="ex5.html">ex5</a> |
+        <a href="ex6.html">ex6</a> |
+        <a href="ex7.html">ex7</a> 
+    <div  style="margin-top:20px"></div>
+    <label for="input1">กรอกวินาที</label>
+    <input type="number" onkeyup="calculator()" id="input1">
+    <button onclick="calculator()">Submit</button>
+    <div id="app"></div>
+    </div>
+    <script>
+        function calculator() {
+            var ss = 0;
+            var mm = 0;
+            var hh = 0;
+            var result = 0;
+            var data = parseInt(document.getElementById("input1").value);
+            result = data;
+            while (result > 60) {
+                if (result >= 3600) {
+                    result -= 3600;
+                    hh++;
+                }else if(result >= 60){
+                    result -= 60;
+                    mm++;
+                }
+             }
+             ss = result;
+
+             ss = checkTime(ss);
+             mm = checkTime(mm);
+             hh = checkTime(hh);
+
+        document.getElementById("app").innerHTML = `<h1>${hh}:${mm}:${ss}</h1><h2>HH:MM:SS</h2>`;
+        }
+        function checkTime(i) {
+            console.log(i);
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+            }
+
+    </script>
+</body>
+</html>
